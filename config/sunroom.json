@@ -1,0 +1,96 @@
+{
+    "name": "sunroom",
+    "n_gpu": 1,
+    "module": "full",
+    "data_loader": {
+        "type": "PCONDataLoader",
+        "args": {
+            "data_dir": "pCON_data/paper_scenes",
+            "scene_name": "sunroom",
+            "img_size": [
+                1024,
+                1024
+            ],
+            "num_points": 262144
+        }
+    },
+    "valid_data_loader": {
+        "type": "PCONDataLoader",
+        "args": {
+            "data_dir": "pCON_data/paper_scenes",
+            "scene_name": "sunroom",
+            "img_size": [
+                1024,
+                1024
+            ],
+            "num_points": 262144
+        }
+    },
+    "model": {
+        "type": "DefaultModel",
+        "args": {
+            "hidden_features": 256,
+            "hidden_layers": 10,
+            "out_features": 3,
+            "first_omega_0": 60,
+            "hidden_omega_0": 30,
+            "sin_type": "cSin_cartesian",
+            "affinity": true
+        }
+    },
+    "loss": {
+        "type": "default_loss",
+        "args": {
+            "S0_l1_lambda": 2,
+            "S0_l2_lambda": 20,
+            "k_complex_l1_lambda": 0.5,
+            "k_complex_l2_lambda": 100,
+            "theta_l1_lambda": 1,
+            "theta_l2_lambda": 10
+        }
+    },
+    "metrics": {
+        "S0": [
+            "psnr",
+            "ssim"
+        ],
+        "p": [
+            "psnr",
+            "ssim"
+        ],
+        "theta": [
+            "psnr",
+            "ssim"
+        ]
+    },
+    "optimizer": {
+        "type": "Adam",
+        "args": {
+            "lr": 5e-05,
+            "betas": [
+                0.5,
+                0.999
+            ],
+            "weight_decay": 0,
+            "amsgrad": true
+        }
+    },
+    "lr_scheduler": {
+        "type": "MultiplicativeLR",
+        "args": {
+            "lr_lambda_tag": "default"
+        }
+    },
+    "trainer": {
+        "type": "DefaultTrainer",
+        "args": {
+            "epochs": 100000,
+            "save_dir": "saved/",
+            "save_period": 200,
+            "verbosity": 2,
+            "monitor": "off",
+            "tensorboardX": true,
+            "log_dir": "saved/runs"
+        }
+    }
+}

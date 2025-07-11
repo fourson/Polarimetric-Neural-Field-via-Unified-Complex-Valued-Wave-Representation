@@ -1,0 +1,2 @@
+Note that all hyper-parameters in the .json files are the same.
+The only difference is the scene name.
