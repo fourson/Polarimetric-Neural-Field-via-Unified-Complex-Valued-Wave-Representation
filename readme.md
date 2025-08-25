@@ -33,7 +33,7 @@ If you find this work helpful to your research, please cite:
 @inproceedings{zhou2025polarimetric,
   title = {Polarimetric neural field with unified complex-valued wave representation},
   author = {Zhou, Chu and Yang, Yixin and Liao, Junda and Guo, Heng and Shi, Boxin and Sato, Imari},
-  booktitle = Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition,
+  booktitle = Proceedings of the IEEE/CVF International Conference on Computer Vision,
   pages = {},
   year = {2025}
 }
