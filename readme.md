@@ -25,10 +25,7 @@ Polarization has found applications in various computer vision tasks by providin
 * The metrics will be automatically calculated after inference
 
 ## Training
-* Train the first stage (unpolarized image estimator) and second stage (polarized image reconstructor) independently:
-  * Run `python execute/train.py -c config/subnetwork1.json` and `python execute/train.py -c config/subnetwork2.json` 
-* Then, train the entire network in an end-to-end manner:
-  * Run `python execute/train.py -c config/full.json --subnetwork1_checkpoint_path <path_to_subnetwork1_checkpoint> --subnetwork2_checkpoint_path <path_to_subnetwork2_checkpoint>` 
+* Run `python execute/train.py -c config/<scene_name.json>`
 
 ## Citation
 If you find this work helpful to your research, please cite:
